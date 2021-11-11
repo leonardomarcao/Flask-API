@@ -1,5 +1,5 @@
 from flask_restful import Api
-from app.controllers.user import UserList, User
+from app.controllers.discord import Discord
 from app.main.errors import errors
 
 # Flask API Configuration
@@ -9,6 +9,6 @@ api = Api(
     prefix='/api'
 )
 
-api.add_resource(UserList, '/users')
-api.add_resource(User, '/users/<int:id>/')
+api.add_resource(Discord, '/discord')
+
 

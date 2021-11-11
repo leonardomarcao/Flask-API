@@ -24,3 +24,7 @@ class UserList(Resource):
         pass
 
 
+class Discord(Resource):
+    def post(self):
+        print(self.post)
+
