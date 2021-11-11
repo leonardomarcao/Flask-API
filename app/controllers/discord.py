@@ -1,8 +1,15 @@
 from flask_restful import Resource
+from flask import request
 
 
-class Discord(Resource):    
-    def get(self):
+class DiscordPullRequest(Resource):    
+    def post(self):
         return {
-            "message": "get: hello from the testcontroller"
+            "data": request.data
+        }
+
+class DiscordDeployCompleted(Resource):
+    def post(self):
+        return {
+            "data": request.data
         }
