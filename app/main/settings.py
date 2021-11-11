@@ -20,34 +20,6 @@ class Config:
     log_socket_host = "127.0.0.1"
     log_socket_port = 514
 
-    # redis main
-    # --------------------------------------------------------------------
-    REDIS_HOST = "redis"  # docker network
-    REDIS_PORT = 6379
-    REDIS_DB = 0
-    REDIS_PASSWD = ''
-
-    # sqlalchemy database main
-    # --------------------------------------------------------------------
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-    SQLALCHEMY_TRACK_MODIFICATIONS = True
-    SQLALCHEMY_ENGINE_OPTIONS = {
-        'executemany_mode': 'batch',
-        'client_encoding': 'utf8',
-        'case_sensitive': False,
-        'echo': True,
-        'echo_pool': True
-    }
-
-    # SMTP server main
-    # --------------------------------------------------------------------
-    SERVER_EMAIL = 'Damiano <damiano.alves@gmail.com>'
-    DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', SERVER_EMAIL)
-    EMAIL_HOST = os.environ.get('EMAIL_HOST')
-    EMAIL_PORT = os.environ.get('EMAIL_PORT')
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-
 
 class DevelopmentConfig(Config):
 
