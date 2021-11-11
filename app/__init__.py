@@ -11,7 +11,6 @@ app.config.from_object(main.settings[os.environ.get('APPLICATION_ENV', 'default'
 # Logs Initialization
 console = logging.getLogger('console')
 
-
 tasks = [
     {
         'id': 1,
