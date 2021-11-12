@@ -19,7 +19,7 @@ class DiscordPullRequest(Resource):
                             "url": d["resource"]["createdBy"]["url"],
                             "icon_url": d["resource"]["createdBy"]["imageUrl"],
                         },
-                        "title": "Pull Request",
+                        "title": d["resource"]['title'],
                         "url": d["resource"]["_links"]['web']['href'],
                         "description": d["detailedMessage"]["markdown"],
                         "color": 15258703,
