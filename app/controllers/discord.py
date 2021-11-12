@@ -49,7 +49,7 @@ class DiscordReleaseCompleted(Resource):
     def post(self):
         d = json.loads(request.data)
         r = requests.post(
-            "https://discord.com/api/webhooks/908688772428873748/mvpQNRcsuJ4mZHMaV7cc9zWuWHurJtdqkjnRg0P40oHteUkN2lkcNNyoGEG6GY5_Je1F",
+            "https://discord.com/api/webhooks/908704900609867856/iEb4MWtMo7RUBj4mu_gbXbABKkysbSlY_FW1alnqlLjZnA4u-bLMDBd9B-xX6OhzgOj6",
             json={
                 "username": "Azure CI Bot - TCL Notification",
                 "avatar_url": "https://swimburger.net/media/0zcpmk1b/azure.jpg",
@@ -80,7 +80,7 @@ class DiscordBuildCompleted(Resource):
     def post(self):
         d = json.loads(request.data)
         r = requests.post(
-            "https://discord.com/api/webhooks/908688772428873748/mvpQNRcsuJ4mZHMaV7cc9zWuWHurJtdqkjnRg0P40oHteUkN2lkcNNyoGEG6GY5_Je1F",
+            "https://discord.com/api/webhooks/908704900609867856/iEb4MWtMo7RUBj4mu_gbXbABKkysbSlY_FW1alnqlLjZnA4u-bLMDBd9B-xX6OhzgOj6",
             json={
                 "username": "Azure CI Bot - TCL Notification",
                 "avatar_url": "https://swimburger.net/media/0zcpmk1b/azure.jpg",
