@@ -17,7 +17,7 @@ class DiscordPullRequest(Resource):
                         "author": {
                             "name": d["resource"]["createdBy"]["displayName"],
                             "url": d["resource"]["createdBy"]["url"],
-                            "icon_url": d["resource"]["createdBy"]["imageUrl"],
+                            "icon_url": f"https://tclsolucoes.visualstudio.com/_api/_common/identityImage?id={d['resource']['createdBy']['id']}&size=512",
                         },
                         "title": d["resource"]['title'],
                         "url": d["resource"]["_links"]['web']['href'],
