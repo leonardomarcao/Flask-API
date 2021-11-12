@@ -45,7 +45,7 @@ class DiscordPullRequest(Resource):
         return {"status_code": r.status_code}
 
 
-class DiscordDeployCompleted(Resource):
+class DiscordReleaseCompleted(Resource):
     def post(self):
         d = json.loads(request.data)
         r = requests.post(
@@ -75,3 +75,38 @@ class DiscordDeployCompleted(Resource):
         )
         return {"status_code": r.status_code}
 
+
+class DiscordBuildCompleted(Resource):
+    def post(self):
+        d = json.loads(request.data)
+        r = requests.post(
+            "https://discord.com/api/webhooks/908688772428873748/mvpQNRcsuJ4mZHMaV7cc9zWuWHurJtdqkjnRg0P40oHteUkN2lkcNNyoGEG6GY5_Je1F",
+            json={
+                "username": "Azure CI Bot - TCL Notification",
+                "avatar_url": "https://swimburger.net/media/0zcpmk1b/azure.jpg",
+                "embeds": [
+                    {
+                        "fields": [
+                            {
+                                "name": "Requerido por",
+                                "value": d["resource"]['requests'][0]['requestedFor']['displayName'],
+                                "inline": True
+                            },
+                            {
+                                "name": "Última Alteração",
+                                "value": d["resource"]["lastChangedBy"]["displayName"],
+                                "inline": True
+                            },
+                        ],
+                        "title": d["message"]['text'],
+                        "description": d["detailedMessage"]["markdown"],
+                        "color": 3917496,
+                        "footer": {
+                          "text": "Build concluído com sucesso!",
+                          "icon_url": "https://cdn-icons-png.flaticon.com/512/1721/1721539.png"
+                        }
+                    },
+                ],
+            }
+        )
+        return {"status_code": r.status_code}
