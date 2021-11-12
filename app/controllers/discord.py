@@ -62,7 +62,7 @@ class DiscordDeployCompleted(Resource):
                             }
                         ],
                         "title": d["message"]['text'],
-                        "url": d['resource']['environment']['release']['_links']['href'],
+                        "url": d['resource']['environment']['release']['_links']['web']['href'],
                         "description": d["detailedMessage"]["markdown"],
                         "color": 3917496,
                         "footer": {
