@@ -58,11 +58,11 @@ class DiscordDeployCompleted(Resource):
                         "fields": [
                             {
                                 "name": "Owner",
-                                "value": d["resource"]['owner']['displayName'],
+                                "value": d["resource"]['environment']['owner']['displayName'],
                             }
                         ],
                         "title": d["message"]['text'],
-                        "url": d['resource']['release']['_links']['href'],
+                        "url": d['resource']['environment']['release']['_links']['href'],
                         "description": d["detailedMessage"]["markdown"],
                         "color": 3917496,
                         "footer": {
