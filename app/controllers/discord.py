@@ -17,7 +17,7 @@ class DiscordPullRequest(Resource):
                         "author": {
                             "name": d["resource"]["createdBy"]["displayName"],
                             "url": d["resource"]["createdBy"]["url"],
-                            "icon_url": "https://cdn3.vectorstock.com/i/thumb-large/68/97/programmer-computer-expert-rgb-color-icon-vector-37206897.jpg",
+                            "icon_url": "https://cdn-icons-png.flaticon.com/512/1/1247.png",
                         },
                         "fields": [
                             {
