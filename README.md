@@ -1,2 +1,2 @@
-# Discord integration
+# TCL Discord integration
 
