@@ -17,8 +17,20 @@ class DiscordPullRequest(Resource):
                         "author": {
                             "name": d["resource"]["createdBy"]["displayName"],
                             "url": d["resource"]["createdBy"]["url"],
-                            "icon_url": f"https://tclsolucoes.visualstudio.com/_api/_common/identityImage?id={d['resource']['createdBy']['id']}&size=512",
+                            "icon_url": "https://cdn3.vectorstock.com/i/thumb-large/68/97/programmer-computer-expert-rgb-color-icon-vector-37206897.jpg",
                         },
+                        "fields": [
+                            {
+                                "name": "Source",
+                                "value": d["resource"]['sourceRefName'],
+                                "inline": True
+                            },
+                            {
+                                "name": "Target",
+                                "value": d["resource"]['targetRefName'],
+                                "inline": True
+                            },
+                        ],
                         "title": d["resource"]['title'],
                         "url": d["resource"]["_links"]['web']['href'],
                         "description": d["detailedMessage"]["markdown"],
