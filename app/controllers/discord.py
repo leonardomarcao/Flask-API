@@ -77,7 +77,7 @@ class DiscordCIReleaseCompleted(Resource):
                         "color": 3917496,
                         "footer": {
                           "text": "Release concluído!",
-                          "icon_url": "https://static.thenounproject.com/png/1410037-200.png"
+                          "icon_url": "https://www.kindpng.com/picc/m/108-1082360_rocket-white-launch-icon-png-transparent-png.png"
                         }
                     },
                 ],
@@ -123,7 +123,7 @@ class DiscordCIBuildCompleted(Resource):
                         "color": 3917496,
                         "footer": {
                           "text": "Build concluído!",
-                          "icon_url": "https://static.thenounproject.com/png/1909170-200.png"
+                          "icon_url": "https://www.pngkey.com/png/detail/202-2027438_build-icon.png"
                         }
                     },
                 ],
