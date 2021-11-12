@@ -33,7 +33,7 @@ class DiscordPullRequest(Resource):
                         "title": d["resource"]['title'],
                         "url": d["resource"]["_links"]['web']['href'],
                         "description": d["detailedMessage"]["markdown"],
-                        "color": 52152219,
+                        "color": 15258703,
                         "footer": {
                           "text": "Por favor, faça revisão do PR, aprove e efetue o merge para prosseguir na pipeline de CI.",
                           "icon_url": "https://images.emojiterra.com/google/android-pie/512px/2615.png"
@@ -42,6 +42,7 @@ class DiscordPullRequest(Resource):
                 ],
             }
         )
+        return {"status_code": r.status_code}
 
 
 class DiscordDeployCompleted(Resource):
@@ -77,4 +78,5 @@ class DiscordDeployCompleted(Resource):
                 ],
             }
         )
+        return {"status_code": r.status_code}
 
