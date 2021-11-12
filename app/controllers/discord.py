@@ -33,7 +33,7 @@ class DiscordPullRequest(Resource):
                         "title": d["resource"]['title'],
                         "url": d["resource"]["_links"]['web']['href'],
                         "description": d["detailedMessage"]["markdown"],
-                        "color": 15258703,
+                        "color": 52152219,
                         "footer": {
                           "text": "Por favor, faça revisão do PR, aprove e efetue o merge para prosseguir na pipeline de CI.",
                           "icon_url": "https://images.emojiterra.com/google/android-pie/512px/2615.png"
@@ -66,9 +66,9 @@ class DiscordDeployCompleted(Resource):
                                 "inline": True
                             },
                         ],
-                        "title": d["message"]['markdown'],
+                        "title": d["message"]['text'],
                         "description": d["detailedMessage"]["markdown"],
-                        "color": 2469631,
+                        "color": 3917496,
                         "footer": {
                           "text": "Build concluído com sucesso!",
                           "icon_url": "https://cdn-icons-png.flaticon.com/512/1721/1721539.png"
