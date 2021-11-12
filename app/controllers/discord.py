@@ -16,7 +16,6 @@ class DiscordPullRequest(Resource):
                     {
                         "author": {
                             "name": d["resource"]["createdBy"]["displayName"],
-                            "url": d["resource"]["createdBy"]["url"],
                             "icon_url": "https://cdn-icons-png.flaticon.com/512/1/1247.png",
                         },
                         "fields": [
@@ -47,4 +46,35 @@ class DiscordPullRequest(Resource):
 
 class DiscordDeployCompleted(Resource):
     def post(self):
-        return {"data": request.data}
+        d = json.loads(request.data)
+        r = requests.post(
+            "https://discord.com/api/webhooks/908688772428873748/mvpQNRcsuJ4mZHMaV7cc9zWuWHurJtdqkjnRg0P40oHteUkN2lkcNNyoGEG6GY5_Je1F",
+            json={
+                "username": "Azure CI Bot - TCL Notification",
+                "avatar_url": "https://swimburger.net/media/0zcpmk1b/azure.jpg",
+                "embeds": [
+                    {
+                        "fields": [
+                            {
+                                "name": "Requerido por",
+                                "value": d["resource"]['requests'][0]['requestedFor']['displayName'],
+                                "inline": True
+                            },
+                            {
+                                "name": "Última Alteração",
+                                "value": d["resource"]["lastChangedBy"]["displayName"],
+                                "inline": True
+                            },
+                        ],
+                        "title": d["message"]['markdown'],
+                        "description": d["detailedMessage"]["markdown"],
+                        "color": 2469631,
+                        "footer": {
+                          "text": "Build concluído com sucesso!",
+                          "icon_url": "https://cdn-icons-png.flaticon.com/512/1721/1721539.png"
+                        }
+                    },
+                ],
+            }
+        )
+
