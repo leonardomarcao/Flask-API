@@ -4,7 +4,7 @@ import json
 import requests
 
 
-class DiscordPullRequest(Resource):
+class DiscordGitNotification(Resource):
     def post(self):
         d = json.loads(request.data)
         r = requests.post(
@@ -45,7 +45,7 @@ class DiscordPullRequest(Resource):
         return {"status_code": r.status_code}
 
 
-class DiscordReleaseCompleted(Resource):
+class DiscordCINotification(Resource):
     def post(self):
         d = json.loads(request.data)
         r = requests.post(
@@ -57,54 +57,20 @@ class DiscordReleaseCompleted(Resource):
                     {
                         "fields": [
                             {
-                                "name": "Owner",
-                                "value": d["resource"]['environment']['owner']['displayName'],
+                                "name": "State",
+                                "value": d["resource"]['run']['state'],
+                                "inline": True
+                            },
+                            {
+                                "name": "Result",
+                                "value": d["resource"]['run']['result'],
+                                "inline": True
                             }
                         ],
                         "title": d["message"]['text'],
-                        "url": d['resource']['environment']['release']['_links']['web']['href'],
+                        "url": d["resource"]['pipeline']['url'],
                         "description": d["detailedMessage"]["markdown"],
                         "color": 3917496,
-                        "footer": {
-                          "text": "Release concluído com sucesso!",
-                          "icon_url": "https://cdn-icons-png.flaticon.com/512/1721/1721539.png"
-                        }
-                    },
-                ],
-            }
-        )
-        return {"status_code": r.status_code}
-
-
-class DiscordBuildCompleted(Resource):
-    def post(self):
-        d = json.loads(request.data)
-        r = requests.post(
-            "https://discord.com/api/webhooks/908704900609867856/iEb4MWtMo7RUBj4mu_gbXbABKkysbSlY_FW1alnqlLjZnA4u-bLMDBd9B-xX6OhzgOj6",
-            json={
-                "username": "Azure CI Bot - TCL Notification",
-                "avatar_url": "https://swimburger.net/media/0zcpmk1b/azure.jpg",
-                "embeds": [
-                    {
-                        "fields": [
-                            {
-                                "name": "Requerido por",
-                                "value": d["resource"]['requests'][0]['requestedFor']['displayName'],
-                                "inline": True
-                            },
-                            {
-                                "name": "Última Alteração",
-                                "value": d["resource"]["lastChangedBy"]["displayName"],
-                                "inline": True
-                            },
-                        ],
-                        "title": d["message"]['text'],
-                        "description": d["detailedMessage"]["markdown"],
-                        "color": 3917496,
-                        "footer": {
-                          "text": "Build concluído com sucesso!",
-                          "icon_url": "https://cdn-icons-png.flaticon.com/512/1721/1721539.png"
-                        }
                     },
                 ],
             }
