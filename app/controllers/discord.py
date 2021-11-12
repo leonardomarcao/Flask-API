@@ -20,12 +20,12 @@ class DiscordPullRequest(Resource):
                             "icon_url": d["resource"]["createdBy"]["imageUrl"],
                         },
                         "title": "Pull Request",
-                        "url": d["resource"]["url"],
+                        "url": d["resource"]["_links"]['web']['href'],
                         "description": d["detailedMessage"]["markdown"],
                         "color": 15258703,
                         "footer": {
                           "text": "Por favor, faça revisão do PR, aprove e efetue o merge para prosseguir na pipeline de CI.",
-                          "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Octicons-git-pull-request.svg/1200px-Octicons-git-pull-request.svg.png"
+                          "icon_url": "https://images.emojiterra.com/google/android-pie/512px/2615.png"
                         }
                     },
                 ],
