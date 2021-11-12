@@ -57,21 +57,16 @@ class DiscordDeployCompleted(Resource):
                     {
                         "fields": [
                             {
-                                "name": "Requerido por",
-                                "value": d["resource"]['requests'][0]['requestedFor']['displayName'],
-                                "inline": True
-                            },
-                            {
-                                "name": "Última Alteração",
-                                "value": d["resource"]["lastChangedBy"]["displayName"],
-                                "inline": True
-                            },
+                                "name": "Owner",
+                                "value": d["resource"]['owner']['displayName'],
+                            }
                         ],
                         "title": d["message"]['text'],
+                        "url": d['resource']['release']['_links']['href'],
                         "description": d["detailedMessage"]["markdown"],
                         "color": 3917496,
                         "footer": {
-                          "text": "Build concluído com sucesso!",
+                          "text": "Release concluído com sucesso!",
                           "icon_url": "https://cdn-icons-png.flaticon.com/512/1721/1721539.png"
                         }
                     },
